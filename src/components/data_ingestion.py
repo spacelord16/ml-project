@@ -8,6 +8,10 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
 from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
+
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
 
 @dataclass 
 # In this componant we can give through this
@@ -56,3 +60,7 @@ if __name__ == "__main__":
     
     data_transforamtion = DataTransformation()
     train_arr,test_arr,_= data_transforamtion.initiate_data_transformation(train_data, test_data)
+    
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_trainer(train_arr, test_arr))
+    
